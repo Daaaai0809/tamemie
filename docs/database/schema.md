@@ -101,8 +101,8 @@ erDiagram
     users ||--|{ income_categories: ""
     users ||--o{ reports: ""
     users ||--o{ saving_goals: ""
-    expenses ||--|| expense_categories: ""
-    incomes ||--|| income_categories: ""
+    expenses }o--|| expense_categories: ""
+    incomes }o--|| income_categories: ""
     reports ||--o{ report_saving_goal: ""
     saving_goals ||--o{ report_saving_goal: ""
 ```

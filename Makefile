@@ -5,3 +5,8 @@ migrate_up:
 migrate_down:
 	@echo "Rolling back database..."
 	sh ./scripts/migrate_down.sh
+
+# Usage: make create_migration name=<migration_name>
+create_migration:
+	@echo "Creating migration..."
+	sh ./scripts/create_migration.sh $(name)

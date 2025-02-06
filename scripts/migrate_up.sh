@@ -13,7 +13,7 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-docker compose ps | grep server >/dev/null 2>&1
+docker compose ps | grep go >/dev/null 2>&1
 if [ $? -ne 0 ]; then
     echo "Docker コンテナが起動していません！"
     echo "Docker コンテナを起動してから再度実行してください。"

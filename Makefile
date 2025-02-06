@@ -10,3 +10,7 @@ migrate_down:
 create_migration:
 	@echo "Creating migration..."
 	sh ./scripts/create_migration.sh $(name)
+
+generate_model:
+	@echo "Generating DB Model & Queries..."
+	sh ./scripts/generate_model.sh

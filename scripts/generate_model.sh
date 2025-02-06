@@ -20,10 +20,8 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-MYSQL_USER=$(cat ${ENV_FILE} | grep MYSQL_USER | cut -d '=' -f 2)
-MYSQL_PASSWORD=$(cat ${ENV_FILE} | grep MYSQL_PASSWORD | cut -d '=' -f 2)
-MYSQL_HOST=$(cat ${ENV_FILE} | grep MYSQL_HOST | cut -d '=' -f 2)
-MYSQL_PORT=$(cat ${ENV_FILE} | grep MYSQL_PORT | cut -d '=' -f 2)
-MYSQL_DATABASE=$(cat ${ENV_FILE} | grep MYSQL_DATABASE | cut -d '=' -f 2) 
+cd "${SERVER_DIR}"
 
-dotenv -e "${ENV_FILE}" -- docker compose exec go migrate -path sql/migrations -database "mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@tcp(${MYSQL_HOST}:${MYSQL_PORT})/${MYSQL_DATABASE}" -verbose down
+pwd
+
+dotenv -e "${ENV_FILE}" -- go run "cmd/database/main.go"

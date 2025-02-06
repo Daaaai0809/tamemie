@@ -1,3 +1,5 @@
 .env
 
 /etc
+
+/go/gen

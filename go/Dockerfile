@@ -4,6 +4,12 @@ ENV CGO_ENABLED=0
 WORKDIR /app
 COPY go.mod go.sum ./
 RUN go mod download
+
+RUN apk add --no-cache curl
+
+# install golang-migrate
+RUN curl -L https://github.com/golang-migrate/migrate/releases/download/v4.18.1/migrate.linux-amd64.tar.gz | tar xvz -C /usr/local/bin
+
 EXPOSE 8000
 CMD ["go", "run", "cmd/server/main.go"]
 
